@@ -47,8 +47,8 @@
 ## 🎮 How to Use
 
 1. **Build the Application**  
-   - Ensure SFML and OpenCV are installed and properly linked in your development environment.
-   - Compile `main.cpp` using your C++ compiler (e.g., g++, clang++ or Visual Studio).
+   - Install [SFML](https://www.sfml-dev.org/download.php) and [OpenCV](https://opencv.org/releases/), and configure your compiler to link them properly.
+   - Compile `main.cpp` using your preferred IDE or compiler.
 
 2. **Run the Executable**  
    - Launch the app in fullscreen mode.
@@ -86,11 +86,15 @@
 
 ---
 
-## 📦 One-Click Run (Optional)
+## 📦 One-Click Run
 
-To use Paint Beats **without setting up SFML or OpenCV manually**:
-- Download the release zip file from the [📁 Releases](#) section.
-- Extract it and run the provided `.exe` file to start drawing instantly!
+Want to try Paint Beats **without compiling**?
+
+- [**Download the ZIP release**](https://github.com/Musab-Farooq/Paint_Beats/blob/main/Paint_Beats_exe.zip)  
+
+
+- Extract the folder.
+- Run the provided `.exe` file inside to launch Paint Beats instantly!
 
 ---
 
