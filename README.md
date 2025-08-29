@@ -90,7 +90,7 @@
 
 Want to try Paint Beats **without compiling**?
 
-- [**Download the ZIP release**](https://github.com/Musab-Farooq/Paint_Beats/blob/main/Paint_Beats_exe.zip)  
+- [**Download the ZIP release**](https://github.com/Musab-Farooq/Paint_Beats/blob/main/Executable_paint.zip)  
 
 
 - Extract the folder.
