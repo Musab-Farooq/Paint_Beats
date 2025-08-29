@@ -6,7 +6,7 @@ int main()
 {
     RenderWindow window(VideoMode::getFullscreenModes()[0], "Paint", Style::Fullscreen);
 
-    RectangleShape toolbar,bg,canvas_place;
+    RectangleShape toolbar, bg, canvas_place;
     toolbar.setPosition(0, 0);
     toolbar.setSize(Vector2f(1400, 100));
     toolbar.setFillColor(Color(120, 120, 120));
@@ -20,47 +20,52 @@ int main()
     sp.setPosition(20, 120);
     Mouse m;
     int thick = 2;
-    int R = 0,G = 0,B = 0;
+    int R = 0, G = 0, B = 0;
     Color c(Color::Black);
 
+    char button_type_shape = 's';
+    char button_type_music = 'm';
+    char button_type_color = 'c';
+    char button_type_function = 'f';
+
     screens paint;
-    paint.setscreen("",17,true);
-    paint.setbuttons(1, "Textures/Circle.png", 50, 50, 210, 20, Color::White, false);
-    paint.setbuttons(2, "Textures/Rectangle.png", 50, 50, 280, 20, Color::White, false);
-    paint.setbuttons(3, "Textures/Line.png", 50, 50, 350, 20, Color::White, false); 
-    paint.setbuttons(4, "Textures/arrow.png", 50, 50, 420, 20, Color::White, false);
-    paint.setbuttons(5, "", 30, 30, 550, 10, Color::Red, false);
-    paint.setbuttons(6, "", 30, 30, 580, 10, Color::Yellow, false);
-    paint.setbuttons(7, "", 30, 30, 610, 10, Color::Black, false);
-    paint.setbuttons(8, "", 30, 30, 1250, 50, Color::White, false);
-    paint.setbuttons(9, "Textures/Music.png", 150, 90, 1000, 0, Color::White, false);
-    paint.setbuttons(10, "Textures/save.png", 150, 90, 0, 0, Color::White, false);
-    paint.setbuttons(11, "Textures/clear.png", 150, 70, 850, 10, Color::White, false);
-    paint.setbuttons(12, "", 30, 30, 640, 10, Color::Blue, false);
-    paint.setbuttons(13, "", 30, 30, 670, 10, Color::Green, false);
-    paint.setbuttons(14, "", 40, 30, 550, 40, Color::White, false);
-    paint.setbuttons(15, "", 40, 30, 600, 40, Color::White, false);
-    paint.setbuttons(16, "", 40, 30, 650, 40, Color::White, false);
-    paint.setbuttons(17, "", 40, 30, 700, 40, Color::White, false);
+    paint.setscreen("", 17, true);
+    paint.setbuttons(1, "Textures/Circle.png", 50, 50, 210, 20, Color::White, false, button_type_shape);
+    paint.setbuttons(2, "Textures/Rectangle.png", 50, 50, 280, 20, Color::White, false, button_type_shape);
+    paint.setbuttons(3, "Textures/Line.png", 50, 50, 350, 20, Color::White, false, button_type_shape);
+    paint.setbuttons(4, "Textures/arrow.png", 50, 50, 420, 20, Color::White, false, button_type_shape);
+    paint.setbuttons(5, "", 30, 30, 550, 10, Color::Red, false, button_type_color);
+    paint.setbuttons(6, "", 30, 30, 580, 10, Color::Yellow, false, button_type_color);
+    paint.setbuttons(7, "", 30, 30, 610, 10, Color::Black, false, button_type_color);
+    paint.setbuttons(8, "", 30, 30, 1250, 50, Color::White, false, button_type_function);
+    paint.setbuttons(9, "Textures/Music.png", 150, 90, 1000, 0, Color::White, false, button_type_function);
+    paint.setbuttons(10, "Textures/save.png", 150, 90, 0, 0, Color::White, false, button_type_function);
+    paint.setbuttons(11, "Textures/clear.png", 150, 70, 850, 10, Color::White, false, button_type_function);
+    paint.setbuttons(12, "", 30, 30, 640, 10, Color::Blue, false, button_type_color);
+    paint.setbuttons(13, "", 30, 30, 670, 10, Color::Green, false, button_type_color);
+    paint.setbuttons(14, "", 40, 30, 550, 40, Color::White, false, button_type_function);
+    paint.setbuttons(15, "", 40, 30, 600, 40, Color::White, false, button_type_function);
+    paint.setbuttons(16, "", 40, 30, 650, 40, Color::White, false, button_type_function);
+    paint.setbuttons(17, "", 40, 30, 700, 40, Color::White, false, button_type_color);
 
     screens musics;
-    musics.setscreen("Textures/music_bg.jpg", 11,false);
-    musics.setbuttons(1, "Textures/back.png", 150, 100, 50, 650, Color::White, false);
-    musics.setbuttons(2, "Textures/play.png", 100, 100, 250, 50, Color::White, false);
-    musics.setbuttons(3, "Textures/pause.png", 100, 100, 250,50, Color::White, false);
-    musics.setbuttons(4, "Textures/play.png", 100, 100, 250, 200, Color::White, false);
-    musics.setbuttons(5, "Textures/pause.png", 100, 100, 250, 200, Color::White, false);
-    musics.setbuttons(6, "Textures/play.png", 100, 100, 250, 350, Color::White, false);
-    musics.setbuttons(7, "Textures/pause.png", 100, 100, 250, 350, Color::White, false);
-    musics.setbuttons(8, "Textures/play.png", 100, 100, 250, 500, Color::White, false);
-    musics.setbuttons(9, "Textures/pause.png", 100, 100, 250, 500, Color::White, false);
-    musics.setbuttons(10, "Textures/play.png", 100, 100, 250, 650, Color::White, false);
-    musics.setbuttons(11, "Textures/pause.png", 100, 100, 250, 650, Color::White, false);
+    musics.setscreen("Textures/music_bg.jpg", 11, false);
+    musics.setbuttons(1, "Textures/back.png", 150, 100, 50, 650, Color::White, false, button_type_function);
+    musics.setbuttons(2, "Textures/play.png", 100, 100, 250, 50, Color::White, false, button_type_music);
+    musics.setbuttons(3, "Textures/pause.png", 100, 100, 250, 50, Color::White, false, button_type_music);
+    musics.setbuttons(4, "Textures/play.png", 100, 100, 250, 200, Color::White, false, button_type_music);
+    musics.setbuttons(5, "Textures/pause.png", 100, 100, 250, 200, Color::White, false, button_type_music);
+    musics.setbuttons(6, "Textures/play.png", 100, 100, 250, 350, Color::White, false, button_type_music);
+    musics.setbuttons(7, "Textures/pause.png", 100, 100, 250, 350, Color::White, false, button_type_music);
+    musics.setbuttons(8, "Textures/play.png", 100, 100, 250, 500, Color::White, false, button_type_music);
+    musics.setbuttons(9, "Textures/pause.png", 100, 100, 250, 500, Color::White, false, button_type_music);
+    musics.setbuttons(10, "Textures/play.png", 100, 100, 250, 650, Color::White, false, button_type_music);
+    musics.setbuttons(11, "Textures/pause.png", 100, 100, 250, 650, Color::White, false, button_type_music);
 
     Font font;
     font.loadFromFile("Fonts/arial.ttf");
 
-    Text thick_write,text, textR, textG, textB, text2;
+    Text thick_write, text, textR, textG, textB, text2;
     thick_write.setFont(font);
     thick_write.setCharacterSize(20);
     thick_write.setFillColor(Color::Black);
@@ -71,12 +76,12 @@ int main()
     text2.setCharacterSize(20);
     text2.setFillColor(Color::Black);
     text2.setPosition(550, 70);
-    text2.setString("R       G       B    Click");
+    text2.setString("R       G       B    Apply");
 
     text.setFont(font);
     text.setCharacterSize(20);
     text.setFillColor(Color::Black);
-    text.setPosition(1250,50);
+    text.setPosition(1250, 50);
     text.setString("2");
 
     textR.setFont(font);
@@ -93,7 +98,7 @@ int main()
     textB.setCharacterSize(20);
     textB.setFillColor(Color::Black);
     textB.setPosition(650, 50);
-    
+
 
     Musics_names();
 
@@ -161,7 +166,7 @@ int main()
 
                     if (paint.buttonexist(14)) {
                         string temp = textR.getString();
-                        if(temp.length() < 3){ 
+                        if (temp.length() < 3) {
                             string input1 = textR.getString();
                             write(event, textR, temp);
                             string num = textR.getString();
@@ -196,10 +201,11 @@ int main()
                     }
 
                     if (paint.buttonexist(17)) {
-                        c = Color(R,G,B);
+                        c = Color(R, G, B);
                         textR.setString("");
                         textG.setString("");
                         textB.setString("");
+                        paint.setbuttons(17, "", 40, 30, 700, 40, c, false, button_type_color);
                     }
 
                     if (paint.buttonexist(9)) {
@@ -218,7 +224,7 @@ int main()
                     }
 
                     if (paint.buttonexist(11)) {
-                        clear(updated_text,sp);
+                        clear(updated_text, sp);
                     }
                 }
 
@@ -232,7 +238,7 @@ int main()
             manage_buttons(window, musics);
         }
 
-        else if (paint.getexist()){
+        else if (paint.getexist()) {
             window.draw(toolbar);
             window.draw(bg);
             paint.draw(window);
@@ -249,3 +255,4 @@ int main()
 
     return 0;
 }
+
