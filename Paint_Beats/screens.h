@@ -15,8 +15,9 @@ struct buttons {
     float buttonpositionX;
     float buttonpositionY;
     bool active;
+    char type;
 
-    void setButton(string path, float Bsizex, float Bsizey, float Bposx, float Bposy, Color c, bool isexist)
+    void setButton(string path, float Bsizex, float Bsizey, float Bposx, float Bposy, Color c, bool isexist, char type)
     {
         this->path = path;
         this->buttonpositionX = Bposx;
@@ -25,6 +26,7 @@ struct buttons {
         this->buttonsizeY = Bsizey;
         this->color = c;
         this->active = isexist;
+        this->type = type;
 
         buttonTexture.loadFromFile(path);
         button.setSize(Vector2f(Bsizex, Bsizey));
@@ -71,6 +73,7 @@ struct screens {
     bool exist;
     buttons* button;
     int numberofbuttons;
+    char button_type;
 
     void setscreen(string path, int num_button, bool exist) {
         this->path = path;
@@ -83,16 +86,29 @@ struct screens {
         this->exist = exist;
     }
 
-    void setbuttons(int num, string path, float Bsizex, float Bsizey, float Bposx, float Bposy, sf::Color c, bool isexist)
+    void setbuttons(int num, string path, float Bsizex, float Bsizey, float Bposx, float Bposy, sf::Color c, bool isexist, char b_type)
     {
-        button[num - 1].setButton(path, Bsizex, Bsizey, Bposx, Bposy, c, isexist);
+        button[num - 1].setButton(path, Bsizex, Bsizey, Bposx, Bposy, c, isexist,b_type);
     }
 
     void functionality(sf::Mouse m, sf::Event e, sf::RenderWindow& window)
     {
+        bool check;
         if (this->exist) {
             for (int i = 0; i < this->numberofbuttons; i++) {
+                check = button[i].active;
                 button[i].functionality(m, e, window);
+                if (button[i].active != check) {
+                    for (int j = 0; j < this->numberofbuttons; j++) {
+                        if (j != i && button[i].type != 'f' && button[j].type == 'f') {
+                            button[j].active = false;
+                        }
+
+                        if (j != i && (button[j].type == button[i].type)) {
+                            button[j].active = false;
+                        }
+                    }
+                }
             }
         }
     }
@@ -135,3 +151,4 @@ struct screens {
         }
     }
 };
+
